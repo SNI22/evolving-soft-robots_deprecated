@@ -1,5 +1,5 @@
-from stlib.physics.deformable import ElasticMaterialObject
-from stlib.physics.constraints import FixedBox
+from stlib3.physics.deformable import ElasticMaterialObject
+from stlib3.physics.constraints import FixedBox
 import Sofa
 import math
 import os
