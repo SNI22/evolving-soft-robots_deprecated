@@ -8,7 +8,7 @@
 
 # args: config.yaml
 # see python3/training/train.py for args
-/docker-entrypoint.sh runuser -u sofauser -- python -m viz.test_gripper
+/docker-entrypoint.sh runuser -u sofauser -- python -m viz.test_baseline
 
 
 # ----------------------------------------------------------------------------
