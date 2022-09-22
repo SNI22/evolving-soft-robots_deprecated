@@ -1,5 +1,5 @@
-from stlib3.physics.deformable import ElasticMaterialObject
-from stlib3.physics.constraints import FixedBox
+from stlib.physics.deformable import ElasticMaterialObject
+from stlib.physics.constraints import FixedBox
 import Sofa
 import math
 import os
@@ -22,62 +22,6 @@ translateFinger3 = "0 " + str(radius + radius*math.sin(angle2-math.pi/2)) + " " 
 translateFinger4 = "0 " + str(radius + radius*math.sin(angle3-math.pi/2)) + " " + str(radius*math.cos(angle3-math.pi/2))
 translations = [translateFinger1, translateFinger2, translateFinger3, translateFinger4]
 angles = [0, angle1, angle2, angle3]
-
-# def disk(parentNode=None, Name="disk",
-#            rotation=[0.0, 0.0, 0.0],
-#            translation=[0.0, 0.0, 0.0],
-#            fixingBox=[0.0, 0.0, 0.0], pullPointLocation=[0.0, 0.0, 0.0]):
-#
-#     disk = parentNode.addChild('disk')
-#     disk.addObject('MeshVTKLoader', name='loader', filename='meshes/mesh_generation/disk.vtk')
-#     disk.addObject('MeshTopology', src='@loader', name='container')
-#     disk.addObject('MechanicalObject', name='tetras', template='Vec3', showObject=True, showObjectScale=1)
-#     disk.addObject('TetrahedronFEMForceField', template='Vec3', name='FEM', method='large', poissonRatio=0.3,
-#                       youngModulus=500)
-#     disk.addObject('UniformMass', totalMass=0.05)
-#     disk.addObject(translation = [0,0,10])
-#     return disk
-
-# def pneuNet0000(parentNode=None, Name="pneuNet",
-#            rotation=[0.0, 0.0, 0.0],
-#            translation=[0.0, 0.0, -25.0],
-#            fixingBox=[0.0, 0.0, 0.0], pullPointLocation=[0.0, 0.0, 0.0]):
-#     pneuNet = parentNode.addChild("pneuNet")
-#     eobject = ElasticMaterialObject(pneuNet, volumeMeshFileName='meshes/pneunet_0000/body.vtk',
-#                                     poissonRatio = 0.3,
-#                                     youngModulus = 18000,
-#                                     totalMass = 0.3,
-#                                     surfaceColor = [0.0,0.8,0.7],
-#                                     #surfaceMeshFileName = 'meshes/pneunet_0000/cavity.stl',
-#                                     collisionMeshFileName = 'meshes/pneunet_0000/collision.stl',
-#                                     rotaion = rotation,
-#                                     translation = translation)
-#     pneuNet.addChild(eobject)
-#     pneuNet.createObject('BoxROI', name='boxROISubTopo', box='-100 22.5 -8 -19 28 8',doVisualization =True)
-#
-#     FixedBox(eobject,
-#              doVisualization=True,
-#              atPositions=[40, -15, -5, 60, 15, 20])
-#
-#
-#
-#
-#     return pneuNet
-
-# def pneuNet0000(parentNode=None, Name='pneuNet0000'):
-#     pneuNet0000 = parentNode.addChild('pneuNet0000')
-#     pneuNet0000.addObject('MeshGmshLoader', name='loader', filename='meshes/pneunet_0000/body.msh')
-#     pneuNet0000.addObject('MeshTopology', src='@loader', name='container')
-#     pneuNet0000.addObject('MechanicalObject', name='tetras', template='Vec3', showObject=True, showObjectScale=1)
-#     pneuNet0000.addObject('BoxROI', name='boxROISubTopo', box=[-100, 22.5, -8, -19, 28, 8])
-#
-#     modelSubTopo = pneuNet0000.addChild('modelSubTopo')
-#     modelSubTopo.addObject('Mesh', position='@loader.position', tetrahedra="@boxROISubTopo.tetrahedraInROI",
-#                            name='container')
-#     modelSubTopo.addObject('TetrahedronFEMForceField', template='Vec3d', name='FEM', method='large', poissonRatio=0.3,
-#                            youngModulus=1500)
-#
-#     return pneuNet0000
 
 def createScene(rootNode):
     rootNode.addObject('RequiredPlugin',
