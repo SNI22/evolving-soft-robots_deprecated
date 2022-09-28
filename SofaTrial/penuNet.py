@@ -4,6 +4,7 @@ import Sofa
 import math
 import os
 from wholeGripperController import WholeGripperController
+from animationLoop import graspingAttempt
 path = os.path.dirname(os.path.abspath(__file__))+'/mesh/'
 
 youngModulusFingers = 500
@@ -14,7 +15,7 @@ fingersMass = 0.04
 radius = 70
 angle1 = 90*math.pi/180  # Angle between 1st and 2nd finger in radian
 angle2 = 180*math.pi/180  # Angle between 1st and 3rd finger in radian
-angle3 = 270*math.pi/180  # Angle between 1st and 4rd finger in radian
+angle3 = 270*math.pi/180  # Angle between 1st and 4th finger in radian
 
 translateFinger1 = "0 0 0"
 translateFinger2 = "0 " + str(radius + radius*math.sin(angle1-math.pi/2)) + " " + str(radius*math.cos(angle1-math.pi/2))
