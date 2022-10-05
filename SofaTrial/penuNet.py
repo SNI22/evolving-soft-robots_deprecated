@@ -84,7 +84,7 @@ def createScene(rootNode):
         finger.addObject('EulerImplicitSolver', name='odesolver', rayleighStiffness=0.1, rayleighMass=0.1)
         finger.addObject('SparseLDLSolver', name='preconditioner')
 
-        finger.addObject('MeshVTKLoader', name='loader', filename='meshes/body0.vtk',
+        finger.addObject('MeshVTKLoader', name='loader', filename='meshes/body9.vtk',
                          rotation=[360 - angles[i] * 180 / math.pi, 0, 0], translation=translations[i])
         finger.addObject('MeshTopology', src='@loader', name='container')
 
@@ -121,7 +121,7 @@ def createScene(rootNode):
         # Constraint							 #
         ##########################################
         cavity = finger.addChild('cavity')
-        cavity.addObject('MeshSTLLoader', name='loader', filename='meshes/cavity0.stl',
+        cavity.addObject('MeshSTLLoader', name='loader', filename='meshes/cavity9.stl',
                          translation=translations[i], rotation=[360 - angles[i] * 180 / math.pi, 0, 0])
         cavity.addObject('MeshTopology', src='@loader', name='topo')
         cavity.addObject('MechanicalObject', name='cavity')
@@ -134,7 +134,7 @@ def createScene(rootNode):
         ##########################################
 
         collisionFinger = finger.addChild('collisionFinger')
-        collisionFinger.addObject('MeshSTLLoader', name='loader', filename='meshes/collision0.stl',
+        collisionFinger.addObject('MeshSTLLoader', name='loader', filename='meshes/collision9.stl',
                                   translation=translations[i], rotation=[360 - angles[i] * 180 / math.pi, 0, 0])
         collisionFinger.addObject('MeshTopology', src='@loader', name='topo')
         collisionFinger.addObject('MechanicalObject', name='collisMech')
@@ -147,7 +147,7 @@ def createScene(rootNode):
         # Visualization						  #
         ##########################################
         modelVisu = finger.addChild('visu')
-        modelVisu.addObject('MeshGmshLoader', name='loader', filename='meshes/body0.msh')
+        modelVisu.addObject('MeshGmshLoader', name='loader', filename='meshes/body9.msh')
         modelVisu.addObject('OglModel', src='@loader', color=[0.7, 0.7, 0.7, 0.6], translation=translations[i],
                             rotation=[360 - angles[i] * 180 / math.pi, 0, 0])
         modelVisu.addObject('BarycentricMapping')
