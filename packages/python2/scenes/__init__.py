@@ -1,5 +1,6 @@
 from .core import Scene
 from .empty_scene import EmptyScene
+from .obstacle_scene import ObstacleScene
 
 
 _scene_classes = {}

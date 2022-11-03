@@ -6,7 +6,7 @@ from .core import Scene
 from stlib.physics.rigid import Floor
 
 
-class EmptyScene(Scene):
+class ObstacleScene(Scene):
     """This class handles the scene creation of the robot model."""
 
     def init_scene(self):
@@ -52,13 +52,16 @@ class EmptyScene(Scene):
                                alignment="TopRight")
         self.robot.load(self.root)
 
-        Floor(self.root,
-              name="Plane",
-              translation="0 -0 -0",
-              rotation=[90, 0, 0],
-              color=[1.0, 0.0, 0.0],
-              isAStaticObject=True,
-              uniformScale=10)
+
+        #Insert obstacle file here
+        planeNode = self.root.createChild('Plane')
+        planeNode.createObject('MeshObjLoader', name='loader', filename='./scenes/Terrain/floorFlat.obj', triangulate=True, rotation=[90, 0, 0], scale=100, translation=[0, 0, -10])
+        planeNode.createObject('MeshTopology', src='@loader')
+        planeNode.createObject('MechanicalObject', src='@loader')
+        planeNode.createObject('TriangleCollisionModel', simulated=False, moving=False)
+        planeNode.createObject('LineCollisionModel', simulated=False, moving=False)
+        planeNode.createObject('PointCollisionModel', simulated=False, moving=False)
+        planeNode.createObject('OglModel',name='Visual', src='@loader', color=[1, 0, 0, 1])
 
 
 
